@@ -1,0 +1,24 @@
+{
+  "name": "proj2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+
+  "scripts": {
+    "dev": "cd trustloop && npm run dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "dev:trustloop": "cd trustloop && npm run dev",
+    "dev:backend": "cd backend && npm run dev"
+  },
+
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
+  },
+
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.0.14"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "trustloop-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node devServer.js",
+    "build": "echo 'Building for Vercel'"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {}
+}
