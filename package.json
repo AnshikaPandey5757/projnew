@@ -5,8 +5,9 @@
   "type": "module",
 
   "scripts": {
-    "dev": "cd trustloop && npm run dev",
-    "build": "vite build",
+    "start": "node devServer.js",
+    "dev": "nodemon devServer.js",
+    "build": "echo 'Building for Vercel'",
     "preview": "vite preview",
     "dev:trustloop": "cd trustloop && npm run dev",
     "dev:backend": "cd backend && npm run dev"
