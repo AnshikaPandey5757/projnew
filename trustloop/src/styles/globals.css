@@ -1,0 +1,201 @@
+:root {
+  --bg: #0B0F1A;
+  --accent: #00E5CC;
+  --accent-amber: #FFB347;
+  --glass: rgba(255,255,255,0.05);
+  --glass-strong: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.08);
+  --muted: rgba(255,255,255,0.45);
+  --text: #ffffff;
+  --max-width: 1400px;
+}
+
+/* ---------- Background ---------- */
+
+body {
+  background:
+    radial-gradient(
+      circle at top right,
+      color-mix(in srgb, var(--accent) 12%, transparent),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      color-mix(in srgb, var(--accent-amber) 8%, transparent),
+      transparent 40%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Glass ---------- */
+
+.glass {
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.glass-strong {
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(24px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ---------- Glow ---------- */
+
+.glow {
+  box-shadow:
+    0 0 20px rgba(0,229,204,.25),
+    0 0 60px rgba(0,229,204,.1);
+}
+
+.glow-hover:hover {
+  box-shadow:
+    0 0 30px rgba(0,229,204,.4);
+}
+
+/* ---------- Layout ---------- */
+
+.section-padding {
+  padding:
+    120px
+    clamp(20px,8vw,120px);
+}
+
+.max-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ---------- Headings ---------- */
+
+.heading-xl {
+  font-family: Syne, Inter, system-ui, sans-serif;
+  font-size: clamp(3.2rem,7vw,5.2rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.heading-lg {
+  font-family: Syne, Inter, system-ui, sans-serif;
+  font-size: clamp(2rem,4.5vw,3.4rem);
+  font-weight: 800;
+}
+
+/* ---------- Inputs ---------- */
+
+.input {
+  width: 100%;
+  padding: 1rem;
+
+  border-radius: 12px;
+
+  background: var(--glass);
+
+  border: 1px solid var(--glass-border);
+
+  color: var(--text);
+  transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.input:focus,
+.input:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent) 60%, white 40%);
+  box-shadow: 0 6px 30px color-mix(in srgb, var(--accent) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  border-radius: 999px;
+  padding: .65rem 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, opacity .12s;
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: black;
+}
+
+.btn-accent:hover,
+.btn-accent:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.btn-ghost {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-2px);
+}
+
+/* Utility focus ring for accessibility */
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent);
+  outline: none;
+}
+
+/* Small helpers */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp .7s ease both;
+}
+
+/* ---------- Light Theme Overrides ---------- */
+:root[data-theme="light"] {
+  --bg: #F7FAFC;
+  --accent: #0f766e; /* teal-700 */
+  --accent-amber: #d97706;
+  --glass: rgba(15,23,42,0.06);
+  --glass-strong: rgba(255,255,255,0.9);
+  --glass-border: rgba(15,23,42,0.06);
+  --muted: rgba(15,23,42,0.6);
+  --text: #0B1220;
+}
